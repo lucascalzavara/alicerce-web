@@ -41,14 +41,16 @@ export const formStyles = css`
       var(--cream);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 36px 48px 40px;
+    justify-content: center;
+    gap: clamp(56px, 12vh, 120px);
+    padding: 36px 48px;
     border-right: 1px solid var(--line);
   }
 
   .aside img {
-    width: min(360px, 100%);
+    width: min(240px, 100%);
     display: block;
+    margin-inline: auto;
   }
 
   .aside h1 {
@@ -74,7 +76,7 @@ export const formStyles = css`
 
   form,
   .card {
-    width: min(440px, 100%);
+    width: min(400px, 100%);
     background: var(--paper);
     border: 1px solid var(--line);
     border-radius: 22px;
@@ -211,11 +213,16 @@ export const formStyles = css`
     .aside {
       border-right: 0;
       border-bottom: 1px solid var(--line);
+      gap: 28px;
       padding: 24px 20px;
     }
 
     .aside img {
-      width: min(220px, 70%);
+      width: min(180px, 70%);
+    }
+
+    .aside > div {
+      display: none;
     }
 
     .row {
