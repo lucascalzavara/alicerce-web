@@ -110,6 +110,7 @@ export const formStyles = css`
     padding: 11px 12px;
     color: var(--ink);
     outline: none;
+    box-sizing: border-box;
   }
 
   textarea {
