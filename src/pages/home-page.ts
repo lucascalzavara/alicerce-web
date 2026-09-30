@@ -41,20 +41,23 @@ export class HomePage extends LitElement {
             </article>
             <article>
               <h2>Multiempresa</h2>
-              <p>Um usuário pode atuar em várias empresas e escolher o contexto após o login.</p>
+              <p>
+                Gerencie uma ou mais empresas em um só acesso. Trabalha por conta própria? Você
+                pode se cadastrar como sua própria empresa.
+              </p>
             </article>
             <article>
-              <h2>Acesso seguro</h2>
-              <p>Sessão com JWT: access token de 1 hora e refresh token com 15 dias, com rotação.</p>
+              <h2>Financeiro por obra</h2>
+              <p>Acompanhe receitas, despesas e saldo de cada obra para manter os custos sob controle.</p>
             </article>
           </section>
 
           <section id="como-funciona" class="wrap steps">
             <h2>Como começar</h2>
             <ol>
-              <li>Cadastre a empresa e o administrador no primeiro acesso.</li>
+              <li>Cadastre sua empresa e crie seu acesso. Se você é autônomo, pode ser sua própria empresa.</li>
               <li>Entre com e-mail e senha. Se houver mais de uma empresa, escolha o contexto.</li>
-              <li>Gerencie as obras com a sessão renovada automaticamente em segundo plano.</li>
+              <li>Organize suas obras e acompanhe o andamento em um só lugar.</li>
             </ol>
           </section>
         </main>
