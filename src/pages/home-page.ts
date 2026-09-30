@@ -174,6 +174,10 @@ export class HomePage extends LitElement {
         .cards {
           grid-template-columns: 1fr;
         }
+
+        .hero img {
+          display: none;
+        }
       }
     `,
   ]
