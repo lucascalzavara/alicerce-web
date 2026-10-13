@@ -4,6 +4,7 @@ import { AuthController } from '../auth/auth-controller.ts'
 import { authStore } from '../auth/auth-store.ts'
 import { navigate } from '../lib/navigate.ts'
 import { layoutStyles } from '../styles/shared.ts'
+import '../components/business-panel.ts'
 
 @customElement('app-home-page')
 export class AppHomePage extends LitElement {
@@ -38,10 +39,9 @@ export class AppHomePage extends LitElement {
         <main class="wrap">
           <section>
             <p class="eyebrow">Área autenticada</p>
-            <h1>Sessão iniciada.</h1>
+            <h1>Sua empresa, suas obras.</h1>
             <p>
-              O frontend já está pronto para as próximas telas de obra. Access token renovado em
-              segundo plano; refresh token com 15 dias e rotação na API.
+              Gerencie obras ativas e consulte os recursos disponíveis no seu plano.
             </p>
             <dl>
               <div>
@@ -58,6 +58,7 @@ export class AppHomePage extends LitElement {
               </div>
             </dl>
           </section>
+          <business-panel product="alicerce" .canManageBilling=${session?.user?.role === 'ADMIN'}></business-panel>
         </main>
       </div>
     `

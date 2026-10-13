@@ -53,13 +53,15 @@ export interface RequestOptions {
   body?: unknown
   auth?: boolean
   retry?: boolean
+  blob?: boolean
 }
 
 export async function apiRequest<T>(path: string, options: RequestOptions = {}): Promise<T> {
   const headers: Record<string, string> = {
     Accept: 'application/json',
   }
-  if (options.body !== undefined) {
+  const multipart = typeof FormData !== 'undefined' && options.body instanceof FormData
+  if (options.body !== undefined && !multipart) {
     headers['Content-Type'] = 'application/json'
   }
 
@@ -72,7 +74,7 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}):
   const response = await fetch(resolveUrl(path), {
     method: options.method ?? 'GET',
     headers,
-    body: options.body === undefined ? undefined : JSON.stringify(options.body),
+    body: options.body === undefined ? undefined : multipart ? options.body as FormData : JSON.stringify(options.body),
   })
 
   const shouldRefresh =
@@ -89,6 +91,7 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}):
     authStore.clear()
   }
 
+  if (options.blob && response.ok) return await response.blob() as T
   const body = await parseBody(response)
   await throwIfFailed(response, body)
   return body as T

@@ -45,3 +45,5 @@ npm run preview  # Preview the production build locally
 ## Brand assets
 
 The `public/` directory contains the color and monochrome logo variants, with and without the Alicerce name. The color symbol is also used as the browser favicon.
+
+A área /app agora inclui planos e obras. Limites e CSV são verificados pela API. Configure o Mercado Pago e execute scripts/002_plans_works.sql conforme Alicerce.Api/docs/plans-and-payments.md para habilitar cobranças. Apenas ADMIN gerencia os planos da empresa.
